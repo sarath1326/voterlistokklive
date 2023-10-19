@@ -10,7 +10,11 @@ const DB=require("./Model/DBconnecting");
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-app.use(cors());
+app.use(cors({
+    origin:["https://voterlist-com.onrender.com"],
+    methods:["GET","POST","DELETE"],
+    credentials:true
+  }));
 
 
 DB.DBConnecting();
